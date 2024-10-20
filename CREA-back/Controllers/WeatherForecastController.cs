@@ -29,5 +29,18 @@ namespace CREA_back.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("random")]
+        public WeatherForecast GetRandomForecast()
+        {
+            var forecast = new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            };
+
+            return forecast;
+        }
     }
 }
