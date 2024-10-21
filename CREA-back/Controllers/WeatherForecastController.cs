@@ -29,5 +29,13 @@ namespace CREA_back.Controllers
             })
             .ToArray();
         }
+
+        //endpoint que devuelve un mensaje de saludo
+        [HttpGet("greet", Name = "Greet")]
+        public ActionResult<string> Greet()
+        {
+            return "Hello, welcome to the Weather Forecast API!";
+        }
+        
     }
 }
