@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CREA_back.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -28,6 +28,12 @@ namespace CREA_back.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost]
+        public string Hello([FromBody] string name)
+        {
+            return $"Hello {name}";
         }
     }
 }
