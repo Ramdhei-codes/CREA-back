@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-application", "CR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-infrastructure", "CREA-back-infrastructure\CREA-back-infrastructure.csproj", "{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-test", "CREA-back-test\CREA-back-test.csproj", "{609A38B1-E974-4AB5-8E22-A9B9A591E483}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
