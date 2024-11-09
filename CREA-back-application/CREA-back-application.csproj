@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>CREA_back_application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CREA-back-domain\CREA-back-domain.csproj" />
+    <ProjectReference Include="..\CREA-back-infrastructure\CREA-back-infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
