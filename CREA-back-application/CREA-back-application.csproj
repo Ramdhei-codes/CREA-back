@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CREA-back-domain\CREA-back-domain.csproj" />
+    <ProjectReference Include="..\CREA-back-infrastructure\CREA-back-infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
