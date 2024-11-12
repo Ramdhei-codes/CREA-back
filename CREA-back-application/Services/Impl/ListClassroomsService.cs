@@ -1,15 +1,16 @@
 ﻿using CREA_back_domain.Entities;
 using CREA_back_domain.Enums;
+using System.Linq;
 
 namespace CREA_back_application.Services.Impl
 {
     public class ListClassroomsService : IListClassroomsService
     {
-        public ListClassroomsService() { }
+        private readonly List<Classroom> _classrooms;
 
-        public List<Classroom> ListClassrooms()
+        public ListClassroomsService()
         {
-            return new List<Classroom>
+            _classrooms = new List<Classroom>
             {
                 new Classroom
                 {
@@ -65,8 +66,17 @@ namespace CREA_back_application.Services.Impl
                     Name = "D120",
                     Status = ClassroomStatus.Available,
                 },
-
             };
+        }
+
+        public List<Classroom> ListClassrooms()
+        {
+            return _classrooms;
+        }
+
+        public List<Classroom> ListClassroomsByStatus(ClassroomStatus status)
+        {
+            return _classrooms.Where(c => c.Status == status).ToList();
         }
     }
 }

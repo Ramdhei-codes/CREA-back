@@ -1,5 +1,6 @@
 ﻿using CREA_back_application.Services;
 using CREA_back_domain.Entities;
+using CREA_back_domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CREA_back.Controllers
@@ -19,6 +20,12 @@ namespace CREA_back.Controllers
         public IEnumerable<Classroom> List()
         {
             return _listClassroomsService.ListClassrooms();
+        }
+
+        [HttpGet("status/{status}", Name = "listByStatus")]
+        public IEnumerable<Classroom> ListByStatus(ClassroomStatus status)
+        {
+            return _listClassroomsService.ListClassroomsByStatus(status);
         }
     }
 }
