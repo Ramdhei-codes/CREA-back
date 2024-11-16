@@ -32,5 +32,23 @@ namespace CREA_back_test
             Assert.That(list.Any(), Is.True);
             Assert.That(list.All(classroom => classroom.Status == ClassroomStatus.Available), Is.True);
         }
+
+        [Test]
+        public void ListBusyClassroomsTest()
+        {
+            List<Classroom> list = _service.ListClassroomsByStatus(ClassroomStatus.Busy);
+
+            Assert.That(list.Any(), Is.True);
+            Assert.That(list.All(classroom => classroom.Status == ClassroomStatus.Busy), Is.True);
+        }
+
+        [Test]
+        public void ReturnEmptyListWithInvalidStatus()
+        {
+            List<Classroom> list = _service.ListClassroomsByStatus((ClassroomStatus)999);
+
+            Assert.That(list, Is.Not.Null);
+            Assert.That(list, Is.Empty);
+        }
     }
 }
