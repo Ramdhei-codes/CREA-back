@@ -8,12 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CREA-back-application\CREA-back-application.csproj" />
     <ProjectReference Include="..\CREA-back-domain\CREA-back-domain.csproj" />
+    <ProjectReference Include="..\CREA-back-infrastructure\CREA-back-infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

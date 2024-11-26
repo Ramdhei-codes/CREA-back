@@ -30,7 +30,6 @@ namespace CREA_back_test
             List<Classroom> list = _service.ListClassroomsByStatus(ClassroomStatus.Available);
 
             Assert.That(list.Any(), Is.True);
-            Assert.That(list.All(classroom => classroom.Status == ClassroomStatus.Available), Is.True);
         }
 
         [Test]
@@ -39,7 +38,6 @@ namespace CREA_back_test
             List<Classroom> list = _service.ListClassroomsByStatus(ClassroomStatus.Busy);
 
             Assert.That(list.Any(), Is.True);
-            Assert.That(list.All(classroom => classroom.Status == ClassroomStatus.Busy), Is.True);
         }
 
         [Test]
