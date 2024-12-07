@@ -9,6 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 // Add services to the container.
 builder.Services.AddScoped<IListClassroomsService, ListClassroomsService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddDbContext<ClassroomsDbContext>(options => options.UseSqlite(connectionString, b => b.MigrationsAssembly("CREA-back")), ServiceLifetime.Transient);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
