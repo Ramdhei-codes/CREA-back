@@ -19,7 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CREA-back-application\CREA-back-application.csproj" />
     <ProjectReference Include="..\CREA-back-domain\CREA-back-domain.csproj" />
-    <ProjectReference Include="..\CREA-back-infrastructure\CREA-back-infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
