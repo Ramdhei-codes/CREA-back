@@ -19,7 +19,7 @@ namespace CREA_back.Controllers
             _readClassroomsFileService = readClassroomsFileService;
         }
 
-        [HttpGet(Name = "list")]
+        [HttpGet]
         [Route("list")]
         public async Task<IEnumerable<ClassResponseModel>> List()
         {

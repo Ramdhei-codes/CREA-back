@@ -10,6 +10,11 @@ namespace CREA_back_application.DataAccess
 
         public ClassroomsDbContext(DbContextOptions<ClassroomsDbContext> options) : base(options) { }
 
+        public void ApplyMigrations()
+        {
+            Database.Migrate();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Classroom>(entity =>

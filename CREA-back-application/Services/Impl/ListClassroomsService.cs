@@ -27,7 +27,7 @@ namespace CREA_back_application.Services.Impl
                 List<Class> classes = await _context.Classes.ToListAsync();
 
                 Class? currentClass = classes.Where(c => c.ClassRoomId == classroom.Id &&
-                                c.DayOfWeek == DayOfWeek.Friday &&
+                                c.DayOfWeek == DateTime.Now.DayOfWeek &&
                                 c.StartTime.Hour <= currentHour &&
                                 c.EndTime.Hour > currentHour).FirstOrDefault();
                     
