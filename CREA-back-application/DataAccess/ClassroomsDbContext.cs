@@ -1,7 +1,7 @@
 ﻿using CREA_back_domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CREA_back_infrastructure.DataAccess
+namespace CREA_back_application.DataAccess
 {
     public class ClassroomsDbContext : DbContext
     {

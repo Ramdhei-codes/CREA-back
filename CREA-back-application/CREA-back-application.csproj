@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+    <PackageReference Include="ExcelMapper" Version="5.2.593" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CREA-back-domain\CREA-back-domain.csproj" />
-    <ProjectReference Include="..\CREA-back-infrastructure\CREA-back-infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

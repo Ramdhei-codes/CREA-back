@@ -5,13 +5,11 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CREA-back", "CREA-back\CREA-back.csproj", "{D4D7D566-99A1-4765-9B7F-F9126E160BBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-domain", "CREA-back-domain\CREA-back-domain.csproj", "{9D279CE1-B2D1-4C1B-8D2F-A45C902D00BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CREA-back-domain", "CREA-back-domain\CREA-back-domain.csproj", "{9D279CE1-B2D1-4C1B-8D2F-A45C902D00BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-application", "CREA-back-application\CREA-back-application.csproj", "{9321828A-5906-488E-94DD-4C2F894447AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CREA-back-application", "CREA-back-application\CREA-back-application.csproj", "{9321828A-5906-488E-94DD-4C2F894447AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-infrastructure", "CREA-back-infrastructure\CREA-back-infrastructure.csproj", "{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CREA-back-test", "CREA-back-test\CREA-back-test.csproj", "{609A38B1-E974-4AB5-8E22-A9B9A591E483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CREA-back-test", "CREA-back-test\CREA-back-test.csproj", "{609A38B1-E974-4AB5-8E22-A9B9A591E483}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{9321828A-5906-488E-94DD-4C2F894447AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9321828A-5906-488E-94DD-4C2F894447AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9321828A-5906-488E-94DD-4C2F894447AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78AFE1F8-BA0E-4F7B-A457-7D08D4AD9D82}.Release|Any CPU.Build.0 = Release|Any CPU
 		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{609A38B1-E974-4AB5-8E22-A9B9A591E483}.Release|Any CPU.ActiveCfg = Release|Any CPU
