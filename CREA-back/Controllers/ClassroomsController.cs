@@ -20,6 +20,7 @@ namespace CREA_back.Controllers
         }
 
         [HttpGet(Name = "list")]
+        [Route("list")]
         public async Task<IEnumerable<ClassResponseModel>> List()
         {
             return await _listClassroomsService.ListClassrooms();
