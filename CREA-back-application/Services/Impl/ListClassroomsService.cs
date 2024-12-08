@@ -27,7 +27,7 @@ namespace CREA_back_application.Services.Impl
                 List<Class> classes = await _context.Classes.ToListAsync();
 
                 Class? currentClass = classes.Where(c => c.ClassRoomId == classroom.Id &&
-                                c.DayOfWeek == DateTime.Now.DayOfWeek &&
+                                c.DayOfWeek == DayOfWeek.Friday &&
                                 c.StartTime.Hour <= currentHour &&
                                 c.EndTime.Hour > currentHour).FirstOrDefault();
                     
@@ -54,7 +54,7 @@ namespace CREA_back_application.Services.Impl
                 }
             }
 
-            return response;
+            return response.OrderByDescending(model => model.Status).ToList();
         }
     }
 
