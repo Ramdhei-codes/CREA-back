@@ -1,4 +1,5 @@
 ﻿using CREA_back_application.Services;
+using CREA_back_application.Services.Impl;
 using CREA_back_domain.Entities;
 using CREA_back_domain.Enums;
 using Microsoft.AspNetCore.Mvc;
@@ -10,22 +11,25 @@ namespace CREA_back.Controllers
     public class ClassroomsController : ControllerBase
     {
         private IListClassroomsService _listClassroomsService;
+        private IReadClassroomsFileService _readClassroomsFileService;
 
-        public ClassroomsController(IListClassroomsService listClassroomsService)
+        public ClassroomsController(IListClassroomsService listClassroomsService, IReadClassroomsFileService readClassroomsFileService)
         {
             _listClassroomsService = listClassroomsService;
+            _readClassroomsFileService = readClassroomsFileService;
         }
 
         [HttpGet(Name = "list")]
-        public IEnumerable<Classroom> List()
+        public async Task<IEnumerable<ClassResponseModel>> List()
         {
-            return _listClassroomsService.ListClassrooms();
+            return await _listClassroomsService.ListClassrooms();
         }
 
-        [HttpGet("status/{status}", Name = "listByStatus")]
-        public IEnumerable<Classroom> ListByStatus(ClassroomStatus status)
+        [HttpPost]
+        [Route("classrooms_load_file")]
+        public async Task LoadClassroomsFromExcelAsync(IFormFile file)
         {
-            return _listClassroomsService.ListClassroomsByStatus(status);
+            await _readClassroomsFileService.AddClasses(file.OpenReadStream());
         }
     }
 }

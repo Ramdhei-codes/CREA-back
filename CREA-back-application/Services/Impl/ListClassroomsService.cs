@@ -1,63 +1,70 @@
-﻿using CREA_back_domain.Entities;
+﻿using CREA_back_application.DataAccess;
+using CREA_back_domain.Entities;
 using CREA_back_domain.Enums;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace CREA_back_application.Services.Impl
 {
     public class ListClassroomsService : IListClassroomsService
     {
-        private readonly List<Classroom> _classrooms;
+        private readonly ClassroomsDbContext _context;
 
-        public ListClassroomsService()
+        public ListClassroomsService(ClassroomsDbContext context)
         {
-            _classrooms = new List<Classroom>
+            _context = context;
+        }
+
+        public async Task<List<ClassResponseModel>> ListClassrooms()
+        {
+            List<ClassResponseModel> response = new List<ClassResponseModel>(); 
+            List<Classroom> classrooms = await _context.Classrooms.ToListAsync();
+
+            foreach (Classroom classroom in classrooms)
             {
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Sala J",
-                },
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "D218",
-                },
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "D320",
-                },
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Sala D",
-                },
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Sala I",
-                },
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "D221"
-                },
-                new Classroom
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "D120"
-                },
-            };
-        }
+                int currentHour = DateTime.Now.Hour;
 
-        public List<Classroom> ListClassrooms()
-        {
-            return _classrooms;
-        }
+                List<Class> classes = await _context.Classes.ToListAsync();
 
-        public List<Classroom> ListClassroomsByStatus(ClassroomStatus status)
-        {
-            return _classrooms;
+                Class? currentClass = classes.Where(c => c.ClassRoomId == classroom.Id &&
+                                c.DayOfWeek == DayOfWeek.Monday &&
+                                c.StartTime.Hour <= currentHour &&
+                                c.EndTime.Hour > currentHour).FirstOrDefault();
+                    
+                if (currentClass != null)
+                {
+                    response.Add(new ClassResponseModel
+                    {
+                        Id = classroom.Id,
+                        Name = classroom.Name,
+                        Responsible = currentClass.Responsible,
+                        StartDate = DateTime.Today.AddHours(currentClass.StartTime.Hour),
+                        EndDate = DateTime.Today.AddHours(currentClass.EndTime.Hour),
+                        Status = ClassroomStatus.Busy,
+                    });
+                }
+                else
+                {
+                    response.Add(new ClassResponseModel
+                    {
+                        Id = classroom.Id,
+                        Name = classroom.Name,
+                        Status = ClassroomStatus.Available,
+                    });
+                }
+            }
+
+            return response;
         }
+    }
+
+    public class ClassResponseModel
+    {
+        public Guid Id { get; set; }
+        public string? Name { get; set; }
+        public string? Responsible { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public ClassroomStatus Status { get; set; }
     }
 }

@@ -1,11 +1,9 @@
-﻿using CREA_back_domain.Entities;
-using CREA_back_domain.Enums;
+﻿using CREA_back_application.Services.Impl;
 
 namespace CREA_back_application.Services
 {
     public interface IListClassroomsService
     {
-        List<Classroom> ListClassrooms();
-        List<Classroom> ListClassroomsByStatus(ClassroomStatus status);
+        Task<List<ClassResponseModel>> ListClassrooms();
     }
 }
