@@ -17,9 +17,15 @@ namespace CREA_back_application.Services.Impl
 
         public async Task AddClasses(Stream stream)
         {
+            DeleteAllClasses();
             ClassroomsFileInterpreter interpreter = new(stream);
             IEnumerable<ClassModel> classModels = interpreter.GetClassModels();
             await MapExcelRowsToClasses(classModels);
+        }
+
+        private void DeleteAllClasses()
+        {
+            _context.Classes.RemoveRange(_context.Classes.ToArray());
         }
 
         private async Task MapExcelRowsToClasses(IEnumerable<ClassModel> classModels)
